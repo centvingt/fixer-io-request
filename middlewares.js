@@ -27,7 +27,6 @@ module.exports = {
   checkClientAuthorization: (req, res, next) => {
     const { authorizedKeys } = global
     const { key } = req.body
-    console.log('🚀 ~ file: middlewares.js ~ line 30 ~ key', key)
     if (!authorizedKeys.includes(key)) {
       return res.status(401).json({ success: false })
     }
