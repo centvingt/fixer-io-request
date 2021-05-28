@@ -14,11 +14,11 @@ const app = express()
 
 app.use(helmet())
 
-// if (process.env.NODE_ENV === 'production') {
-//   const expressEnforcesSSL = require('express-enforces-ssl')
-//   app.enable('trust proxy')
-//   app.use(expressEnforcesSSL())
-// }
+if (process.env.NODE_ENV === 'production') {
+  const expressEnforcesSSL = require('express-enforces-ssl')
+  app.enable('trust proxy')
+  app.use(expressEnforcesSSL())
+}
 
 app.use(express.json())
 
