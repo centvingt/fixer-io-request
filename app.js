@@ -4,6 +4,7 @@ const { PORT, AUTHORIZED_KEYS } = process.env
 const port = PORT || 3000
 
 global.authorizedKeys = AUTHORIZED_KEYS.split(' ')
+console.log('global.authorizedKeys', global.authorizedKeys)
 
 const express = require('express')
 const helmet = require('helmet')
@@ -15,9 +16,9 @@ const app = express()
 app.use(helmet())
 
 if (process.env.NODE_ENV !== 'production') {
-  const expressEnforcesSSL = require('express-enforces-ssl')
-  app.enable('trust proxy')
-  app.use(expressEnforcesSSL())
+  // const expressEnforcesSSL = require('express-enforces-ssl')
+  // app.enable('trust proxy')
+  // app.use(expressEnforcesSSL())
 }
 
 app.use(express.json())
