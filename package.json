@@ -1,7 +1,7 @@
 {
-  "name": "fixer-request",
+  "name": "fixer-io-request",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Node.js API to not call Fixer.io more than once a day (Node.js v14.17.0)",
   "main": "app.js",
   "scripts": {
     "dev": "npx nodemon app",

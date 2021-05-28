@@ -1,14 +1,15 @@
 if (process.env.NODE_ENV !== 'production') require('dotenv').config()
-const { PORT, AUTHORIZED_KEYS } = process.env
+const { PORT, AUTHORIZED_KEYS, FIXER_KEY } = process.env
 
 const port = PORT || 3000
 
 global.authorizedKeys = AUTHORIZED_KEYS.split(' ')
+global.fixerKey = FIXER_KEY
 
 const express = require('express')
 const helmet = require('helmet')
 
-const { getDataFromApi, checkClientAuthorization } = require('./middlewares')
+const { getData, checkClientAuthorization } = require('./middlewares')
 
 const app = express()
 
@@ -22,8 +23,8 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use(express.json())
 
-app.get('/', checkClientAuthorization, getDataFromApi, (req, res) => {
-  res.status(200).json(req.data)
+app.get('/', checkClientAuthorization, getData, (req, res) => {
+  res.status(200).json(res.data)
 })
 app.get('*', (req, res) => {
   res.status(404).json({

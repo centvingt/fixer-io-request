@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let options = {
+          timeZone: 'Europe/London',
+          year: 'numeric',
+          month: 'numeric',
+          day: 'numeric',
+          hour: 'numeric',
+        },
+        formatter = new Intl.DateTimeFormat([], options)
+
+      console.log(formatter.format(new Date()))
+      console.log(formatter.formatToParts(new Date()))
+
+      const parts = formatter.formatToParts(new Date())
+      console.log(`${parts[4].value}-${parts[2].value}-${parts[0].value}`)
+    </script>
+  </body>
+</html>
