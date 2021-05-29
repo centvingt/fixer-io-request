@@ -37,6 +37,8 @@ module.exports = {
 
     console.log('currentDate', currentDate)
     console.log('apiDataDate', apiDataDate)
+    res.currentDate = currentDate
+    res.apiDataDate = apiDataDate
 
     if (currentDate > apiDataDate) {
       return module.exports.getDataFromApi(req, res, next)

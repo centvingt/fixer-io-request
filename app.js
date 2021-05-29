@@ -24,6 +24,11 @@ if (process.env.NODE_ENV === 'production') {
 app.use(express.json())
 
 app.get('/', checkClientAuthorization, getData, (req, res) => {
+  res.data = {
+    ...res.data,
+    currentDate: res.currentDate,
+    apiDataDate: res.apiDataDate,
+  }
   res.status(200).json(res.data)
 })
 app.get('*', (req, res) => {
