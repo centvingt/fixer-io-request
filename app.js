@@ -37,5 +37,5 @@ app.get('*', (req, res) => {
   })
 })
 app.listen(port, () => {
-  console.log(`App started on port ${port}`)
+  console.log(`App started on port ${port} wiht mode ${process.env.NODE_ENV}`)
 })

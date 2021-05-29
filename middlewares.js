@@ -6,7 +6,8 @@ let apiData = null
 module.exports = {
   checkClientAuthorization: (req, res, next) => {
     const { authorizedKeys } = global
-    const { key } = req.body
+    // const { key } = req.body
+    const key = req.body.key ? req.body.key : req.query.key
     if (!authorizedKeys.includes(key)) {
       return res.status(401).json({ success: false })
     }
