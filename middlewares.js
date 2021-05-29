@@ -32,7 +32,7 @@ module.exports = {
 
     const currentDate = getDate(new Date())
 
-    const timestamp = apiData?.timestamp || null
+    const timestamp = apiData ? apiData.timestamp : null
     let apiDataDate = getDate(new Date(timestamp * 1000))
 
     console.log('currentDate', currentDate)
